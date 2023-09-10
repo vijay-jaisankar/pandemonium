@@ -1,5 +1,8 @@
 # pandemonium
-Find inspiration for your next meme creation!
+Find inspiration for your next meme creation!  
+
+## Imgflip API
+This project uses the [Imgflip API](https://imgflip.com/api) to get meme templates. The raw [API endpoint output](https://api.imgflip.com/get_memes) can be consulted to modity the parsing script in the event of schema updates. 
 
 
 ## Installing the dependencies
