@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
+from flask_bootstrap import Bootstrap
 from imgflip import get_meme_url
 
 """
@@ -11,6 +12,7 @@ DEFAULT_IMAGE_URI = "https://cdn.vectorstock.com/i/preview-1x/65/30/default-imag
     Initialise Flask app
 """
 app = Flask(__name__)
+Bootstrap(app)
 
 
 """
@@ -23,7 +25,6 @@ def index():
     if sample_img_url is None:
         sample_img_url = DEFAULT_IMAGE_URI
     return render_template("index.html", image_url = sample_img_url)
-
 
 
 """
