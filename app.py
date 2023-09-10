@@ -1,4 +1,10 @@
 from flask import Flask, render_template
+from imgflip import get_meme_url
+
+"""
+    @constant Default image in case API throws errors
+"""
+DEFAULT_IMAGE_URI = "https://cdn.vectorstock.com/i/preview-1x/65/30/default-image-icon-missing-picture-page-vector-40546530.jpg"
 
 
 """
@@ -12,7 +18,11 @@ app = Flask(__name__)
 """
 @app.get("/")
 def index():
-    return render_template("index.html")
+    global DEFAULT_IMAGE_URI
+    sample_img_url = get_meme_url()
+    if sample_img_url is None:
+        sample_img_url = DEFAULT_IMAGE_URI
+    return render_template("index.html", image_url = sample_img_url)
 
 
 
