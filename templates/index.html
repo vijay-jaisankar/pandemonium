@@ -7,15 +7,19 @@
     <title>Pandemonium - Get Meme Inspiration!</title>
 </head>
 <body>
-
     {% extends "bootstrap/base.html" %}
 
-    {% block content %}
-        <h1> Welcome to Pandemonium! </h1> 
-        <br> <br>
-        <p> Find inspiration for your next great meme creation! </p>
+    {% block styles %}
+        {{super()}}
+        <link rel="stylesheet"
+            href="{{ url_for('static', filename='style.css') }}">
 
-        <img src = {{ image_url }}>
+            <div class="centered-content">
+                    <h1> Welcome to Pandemonium! </h1> <br><br>
+                    <p> Find inspiration for your next great meme creation! </p> <br><br>
+                    <img src = {{ image_url }}>
+            </div>
+    
     {% endblock %}
 
 </body>
