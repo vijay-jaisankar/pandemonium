@@ -1,9 +1,15 @@
 # pandemonium
-Find inspiration for your next meme creation!  
+**Find inspiration for your next meme creation!**
 
 ## Imgflip API
 This project uses the [Imgflip API](https://imgflip.com/api) to get meme templates. The raw [API endpoint output](https://api.imgflip.com/get_memes) can be consulted to modity the parsing script in the event of schema updates. 
 
+## Contributing
+Contributions welcome!  
+Feel free to raise an issue to report a bug and suggest changes, and work on corresponding PRs. 
+Please read the [Contributing guidelines](https://github.com/vijay-jaisankar/pandemonium/blob/main/CONTRIBUTING.md) before raising an issue/PR to main consistency with the community guidelines.
+
+---
 
 ## Installing the dependencies
 Make sure [Python](https://www.python.org/downloads/) `3.x` is installed on your system. This can be validated by running the following command: `python --version`.  
