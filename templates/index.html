@@ -1,27 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="https://storage.googleapis.com/openscreenshot/S%2Fa%2F7/mwBI9V7aS.png">
-    <title>Pandemonium - Get Meme Inspiration!</title>
-</head>
-<body>
-    {% extends "bootstrap/base.html" %}
+{% extends "bootstrap/base.html" %}
 
-    {% block styles %}
-        {{super()}}
-        <link rel="stylesheet"
-            href="{{ url_for('static', filename='style.css') }}">
+{% block head %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="mimeosd - collaborator">
+<meta name="description" content="Pandemonium - Find inspiration for your next great meme creation with randomly fetched memes!">
+<meta name="keywords" content="memes, inspiration, funny memes, imgflip, meme generator, meme inspiration">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Pandemonium - Get Meme Inspiration!">
+<meta property="og:description" content="Find inspiration for your next great meme creation with randomly fetched memes!">
+<meta property="og:image" content="{{ url_for('static', filename='default-meme-image.jpg') }}">
+<meta property="og:url" content="{{ url_for('index', _external=True) }}">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pandemonium - Get Meme Inspiration!">
+<meta name="twitter:description" content="Find inspiration for your next great meme creation with randomly fetched memes!">
+<meta name="twitter:image" content="{{ url_for('static', filename='default-meme-image.jpg') }}">
+<meta name="twitter:site" content="@YourTwitterHandle">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/png" href="https://storage.googleapis.com/openscreenshot/S%2Fa%2F7/mwBI9V7aS.png">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<title>Pandemonium - Get Meme Inspiration!</title>
+{% endblock %}
 
-            <div class="centered-content">
-                    <h1> Welcome to Pandemonium! </h1> <br><br>
-                    <p> Find inspiration for your next great meme creation! </p> <br><br>
-                    <img src = {{ image_url }}>
-            </div>
-    
-    {% endblock %}
 
-</body>
-</html>
+{% block content %}
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="text-center">
+        <h1>Welcome to Pandemonium!</h1>
+        <p>Find inspiration for your next great meme creation!</p>
+        <img src="{{ image_url }}" alt="Meme image" class="img-fluid rounded">
+        <button onclick="window.location.href='{{ url_for('index') }}'"
+        class="btn btn-primary mt-3 d-block mx-auto">
+         Get a New Meme
+        </button>
+
+    </div>
+</div>
+{% endblock %}

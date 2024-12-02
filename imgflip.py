@@ -2,23 +2,21 @@ import requests
 import random
 from typing import Optional
 
-"""
-    @method get_meme_url
-        Calls the ImgFlip API to get a random meme URL
-    @ref https://imgflip.com/api
-"""
 def get_meme_url() -> Optional[str]:
     try:
-        # Make the request to imgflip API
-        r = requests.get("https://api.imgflip.com/get_memes")
-        if r.status_code != 200:
+        response = requests.get("https://api.imgflip.com/get_memes")
+        response.raise_for_status()  # Ensure request is successful
+
+        # Safely access API data
+        data = response.json()
+        if "data" in data and "memes" in data["data"]:
+            meme_details = data["data"]["memes"]
+            meme_object = random.choice(meme_details)
+            return str(meme_object["url"])
+        else:
+            print("Unexpected API response format.")
             return None
-        
-        # Get details of a random meme
-        meme_details = r.json()["data"]["memes"]
-        meme_object = random.choice(meme_details)
-        return str(meme_object["url"])
-    
+
     except Exception as e:
-        print(f"Error occured: {e}")
+        print(f"Error occurred: {e}")
         return None
